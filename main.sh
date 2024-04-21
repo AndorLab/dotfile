@@ -54,7 +54,7 @@ install_tool_list() {
     not_installed_tool_list=$(check_installed_tool "${tool_list[@]}")
     echo "Not installed tools: $not_installed_tool_list"
     if [ -n "$not_installed_tool_list" ]; then
-        for tool_name in "$not_installed_tool_list"; do
+        for tool_name in $not_installed_tool_list; do
             echo "🍗 Start to install the tool: ${tool_name}"
             brew install "${tool_name}"
             echo "🎉 Successfully install the tool: ${tool_name}"

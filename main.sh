@@ -129,14 +129,14 @@ install_asdf_dependencies() {
 #######################################asdf#######################################
 #######################################zsh#######################################
 config_zsh() {
-cat << EOF > ~/.zshrc
+cat << 'EOF' > "$HOME/.zshrc"
     export ZSH="$HOME/.oh-my-zsh"
 
     ZSH_THEME="robbyrussell"
 
     plugins=(git)
 
-    source $ZSH/oh-my-zsh.sh
+    source "$ZSH/oh-my-zsh.sh"
 
     export HOMEBREW_NO_AUTO_UPDATE=1
     export HOMEBREW_NO_INSTALL_CLEANUP=false
@@ -150,13 +150,14 @@ cat << EOF > ~/.zshrc
     PATH=$(pyenv root)/shims:$PATH
 
     #JAVA_HOME
-    . ~/.asdf/plugins/java/set-java-home.zsh
+    . "$HOME/.asdf/plugins/java/set-java-home.zsh"
 
     eval "$(direnv hook zsh)"
-    # enabel to downlaod node-pre-gyp package
+    # enable to download node-pre-gyp package
     export NODE_TLS_REJECT_UNAUTHORIZED=0
 EOF
 }
+
 
 #######################################zsh#######################################
 

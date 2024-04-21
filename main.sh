@@ -64,12 +64,12 @@ install_tool_list() {
 
 install_cloudflare_cert() {
     echo "🍗 Start to install cloudflare cert"
-    if [ ! -d "~/.config" ]; then
-        sudo mkdir -p "~/.config"
-    fi
-    local cert_path="/.config/.cloudflare"
+    # if [ ! -d "$HOME/.config" ]; then
+    #     sudo mkdir -p "$HOME/.config"
+    # fi
+    local cert_path="$HOME/.config/.cloudflare"
     if [ ! -e "${cert_path}" ]; then
-        mkdir -p "${cert_path}"
+        sudo mkdir -p "${cert_path}"
     fi
     curl -o "${cert_path}" https://developers.cloudflare.com/cloudflare-one/static/Cloudflare_CA.crt
     sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "${cert_path}/Cloudflare_CA.crt"

@@ -13,7 +13,7 @@ check_installed_apps() {
     done
     
     if [ ${#installed_apps[@]} -gt 0 ]; then
-        echo "Not installed app list: ${installed_apps[*]}"
+        # echo "Not installed app list: ${installed_apps[*]}"
         echo "${installed_apps[@]}"
     fi
 }
@@ -28,7 +28,7 @@ check_installed_tool() {
     done
     
     if [ ${#installed_tool_list[@]} -gt 0 ]; then
-        echo "Not installed app list: ${installed_tool_list[*]}"
+        # echo "Not installed app list: ${installed_tool_list[*]}"
         echo "${installed_tool_list[@]}"
     fi
 }

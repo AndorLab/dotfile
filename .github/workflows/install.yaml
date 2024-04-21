@@ -17,5 +17,12 @@ jobs:
         uses: ludeeus/action-shellcheck@master
         with:
           scandir: "./"
+  install:
+    name: Install
+    runs-on: macos-14
+    needs: 
+      - shellcheck
+    steps:
+      - uses: actions/checkout@v4
       - name: Execute
         run: ./main.sh

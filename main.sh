@@ -89,7 +89,9 @@ install_zsh() {
 }
 
 install_infra() {
-    mkdir ~/.config
+    if [ ! -d "/Users/runner/.config" ]; then
+        mkdir -p "/Users/runner/.config"
+    fi
     echo "🍗 Start to install infra..."
     install_homebrew;
     install_zsh;

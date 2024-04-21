@@ -37,6 +37,7 @@ install_cask_list() {
     local app_list="$1"
 
     not_installed_app_list=$(check_installed_apps "${app_list[@]}")
+    echo "Not installed apps: $not_installed_app_list"
     if [ -n "$not_installed_app_list" ]; then
         for app_name in "${not_installed_app_list[@]}"; do
             echo "🍗 Start to install the app: ${app_name}"
@@ -51,6 +52,7 @@ install_cask_list() {
 install_tool_list() {
     local tool_list="$1"
     not_installed_tool_list=$(check_installed_tool "${tool_list[@]}")
+    echo "Not installed tools: $not_installed_tool_list"
     if [ -n "$not_installed_tool_list" ]; then
         for tool_name in "${not_installed_tool_list[@]}"; do
             echo "🍗 Start to install the tool: ${tool_name}"

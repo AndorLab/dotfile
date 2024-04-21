@@ -34,7 +34,7 @@ check_installed_tool() {
 }
 
 install_cask_list() {
-    local app_list="$1"
+    local app_list="$@"
 
     not_installed_app_list=$(check_installed_apps "${app_list[@]}")
     echo "Not installed apps: $not_installed_app_list"
@@ -50,7 +50,7 @@ install_cask_list() {
 }
 
 install_tool_list() {
-    local tool_list="$1"
+    local tool_list="$@"
     not_installed_tool_list=$(check_installed_tool "${tool_list[@]}")
     echo "Not installed tools: $not_installed_tool_list"
     if [ -n "$not_installed_tool_list" ]; then

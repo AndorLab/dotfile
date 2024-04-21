@@ -64,6 +64,9 @@ install_tool_list() {
 
 install_cloudflare_cert() {
     echo "🍗 Start to install cloudflare cert"
+    if [ ! -d "~/.config" ]; then
+        sudo mkdir -p "~/.config"
+    fi
     local cert_path="/.config/.cloudflare"
     if [ ! -e "${cert_path}" ]; then
         mkdir -p "${cert_path}"
@@ -85,13 +88,10 @@ install_homebrew() {
 }
 
 install_zsh() {
-    sudo sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 }
 
 install_infra() {
-    if [ ! -d "/Users/runner/.config" ]; then
-        mkdir -p "/Users/runner/.config"
-    fi
     echo "🍗 Start to install infra..."
     install_homebrew;
     install_zsh;

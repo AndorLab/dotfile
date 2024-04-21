@@ -39,7 +39,7 @@ install_cask_list() {
     not_installed_app_list=$(check_installed_apps "${app_list[@]}")
     echo "Not installed apps: $not_installed_app_list"
     if [ -n "$not_installed_app_list" ]; then
-        for app_name in "${not_installed_app_list[@]}"; do
+        for app_name in $not_installed_app_list; do
             echo "🍗 Start to install the app: ${app_name}"
             brew install --cask "${app_name}"
             echo "🎉 Successfully install the app: ${app_name}"

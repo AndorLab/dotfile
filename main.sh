@@ -68,10 +68,10 @@ install_cloudflare_cert() {
     if [ ! -e "${cert_path}" ]; then
         sudo mkdir -p "${cert_path}"
     fi
-    curl -o "${cert_path}/Cloudflare_CA.crt" https://developers.cloudflare.com/cloudflare-one/static/Cloudflare_CA.crt
+    sudo curl -o "${cert_path}/Cloudflare_CA.crt" https://developers.cloudflare.com/cloudflare-one/static/Cloudflare_CA.crt
     sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "${cert_path}/Cloudflare_CA.crt"
 
-    curl -o "${cert_path}/Cloudflare_CA.pem" https://developers.cloudflare.com/cloudflare-one/static/Cloudflare_CA.pem
+    sudo curl -o "${cert_path}/Cloudflare_CA.pem" https://developers.cloudflare.com/cloudflare-one/static/Cloudflare_CA.pem
     (echo | sudo tee -a /etc/ssl/cert.pem) < "${cert_path}/Cloudflare_CA.pem"
 
     echo "🎉 Successfully installed cloudflare cert" 

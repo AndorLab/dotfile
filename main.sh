@@ -6,17 +6,17 @@ set -euo pipefail
 check_installed_apps() {
     local installed_apps=()
     
-    for app in "$@"; do
+    for app in "${@}"; do
         if ! brew list | grep -q "$app"; then
             installed_apps+=("$app")
         fi
     done
     
     if [ ${#installed_apps[@]} -gt 0 ]; then
-        # echo "Not installed app list: ${installed_apps[*]}"
         echo "${installed_apps[@]}"
     fi
 }
+
 
 check_installed_tool() {
     local installed_tool_list=()
@@ -34,7 +34,7 @@ check_installed_tool() {
 }
 
 install_cask_list() {
-    local app_list="$*"
+    local app_list=("$@")
 
     not_installed_app_list=$(check_installed_apps "${app_list[@]}")
     echo "Not installed apps: $not_installed_app_list"

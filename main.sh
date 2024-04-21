@@ -89,6 +89,7 @@ install_zsh() {
 }
 
 install_infra() {
+    mkdir ~/.config
     echo "🍗 Start to install infra..."
     install_homebrew;
     install_zsh;
